@@ -1,0 +1,21 @@
+n, m = map(int, input().split())
+
+matrix = []
+for _ in range(n):
+    row = list(map(int, input().split()))
+    matrix.append(row)
+
+# Create the absolute matrix
+absolute_matrix = []
+for i in range(n):
+    absolute_row = []
+    for j in range(m):
+        absolute_element = abs(matrix[i][j])
+        absolute_row.append(absolute_element)
+    absolute_matrix.append(absolute_row)
+
+# Print the absolute matrix
+for row in absolute_matrix:
+    for element in row:
+        print(element, end=" ")
+    print()
