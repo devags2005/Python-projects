@@ -1,0 +1,21 @@
+from flask import Flask, request
+
+app = Flask(__name__)
+
+def is_admin(username):
+    # Check if the username is an admin
+    admins = ['admin1', 'admin2', 'admin3']
+    return username in admins
+
+@app.route('/admin')
+def admin_page():
+    username = request.args.get('username')
+
+    if is_admin(username):
+        # Code to display admin page with special privileges
+        return 'Welcome to the admin page!'
+    else:
+        return 'Sorry, you do not have admin privileges.'
+
+if __name__ == '__main__':
+    app.run()
